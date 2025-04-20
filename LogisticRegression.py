@@ -39,7 +39,7 @@ class LogReg:
             y_linear = np.dot(X, self.betas)
             y_pred = sigmoid(y_linear)
             error = y - y_pred
-            d_betas = (-2/n_samples)*np.dot(X.T, error)
+            d_betas = (-1)*np.dot(X.T, error)
             self.betas = self.betas - self.learning_rate*d_betas
 
     def predict(self, X):
