@@ -63,30 +63,30 @@ class PCA:
 
             self.eigen_vectors = self.eig_vecs
 
-        def transform(self, X):
-            """
-            Apply the dimensionality reduction on X.
+    def transform(self, X):
+        """
+        Apply the dimensionality reduction on X.
 
-            Parameters
-            ----------
+        Parameters
+        ----------
 
-            X: Array on which dimensionality reduction is applied.
+        X: Array on which dimensionality reduction is applied.
 
-            Returns
-            -------
+        Returns
+        -------
 
-            Returns the transformed X. 
-            """
-            if self.method == "svd":
+        Returns the transformed X. 
+        """
+        if self.method == "svd":
                 
-                # Transforming X
-                X_svd_proj = X @ self.VT.T[:, : self.n_components]
+            # Transforming X
+            X_svd_proj = X @ self.VT.T[:, : self.n_components]
                 
-                return X_svd_proj
+            return X_svd_proj
             
-            elif self.method == "evd":
+        elif self.method == "evd":
                 
-                # Transforming X
-                X_evd_proj = X @ self.eig_vecs[:, : self.n_components]
+            # Transforming X
+            X_evd_proj = X @ self.eig_vecs[:, : self.n_components]
                 
-                return X_evd_proj
+            return X_evd_proj
